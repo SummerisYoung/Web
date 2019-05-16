@@ -16,4 +16,4 @@
 ---
 **7.定时器应用（天竺少女）**
 ---
-[demo]https://summerisyoung.github.io/Web/
+[demo]https://summerisyoung.github.io/Web/(定时器应用天竺少女)Tian Zhu girl/index.html
