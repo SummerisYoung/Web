@@ -1,0 +1,21 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#top{
+	padding: 20px;
+}
+#bottom{
+	position: relative;  //父亲相对于document要相对定位
+}
+.box{
+	width: 220px;
+	height: 375px;
+	margin: 0 15px 15px 0;
+	background-color: #e8e8e8;
+}
+.box p:last-child{
+	font-size: 13px;
+	color: orangered;
+}
