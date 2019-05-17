@@ -1,0 +1,22 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body{
+	background-color: #000;
+	text-align: center;
+	padding: 100px;
+}
+
+#pic{
+	display: none;
+	transform: scale(2);
+	margin: 100px auto;
+}
+
+#time{
+	font-size: 100px;
+	color: red;
+}
