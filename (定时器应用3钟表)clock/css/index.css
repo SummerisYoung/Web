@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#box{
+	width: 600px;
+	height: 600px;
+	background:url(../img/clock.png) no-repeat;
+	margin: 10px auto;
+	position: relative;
+}
+
+#hour,#minute,#second{
+	position: absolute;
+	left: 50%;
+	top: 0;
+	width: 40px;
+	height: 600px;
+}
+
+#hour{
+	background: url(../img/hour.png) no-repeat;
+	margin-left: -40px;
+	margin-top: 10px;
+}
+
+#minute{
+	background: url(../img/minute.png) no-repeat;
+	margin-left: -5px;
+	margin-top: 20px;
+}
+
+#second{
+	background: url(../img/second.png) no-repeat;
+	margin-left: -16px;
+}
