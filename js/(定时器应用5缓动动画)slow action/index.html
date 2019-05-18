@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			#box{
+				width: 90px;
+				height: 90px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn" type="button">开始动画   </button>
+		<button id="btn1" type="button">反悔开始动画</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				//1.定义变量
+				var timer = null, begin = 0, target = 800;
+				var disposable_timer = null;
+				//2.开始动画
+				$('btn').onclick = function(){
+					//2.1清除定时器
+					clearTimeout(disposable_timer);
+					clearInterval(timer);
+					
+					//2.2设置一次定时器
+					disposable_timer = setTimeout(function(){
+						/* 起始值 += (结束值 - 起始值) * 缓动系数 */
+						timer = setInterval(function(){
+							begin += (target - begin) * 0.3;
+							
+							//判断
+							if(Math.round(begin) >= target){
+								begin = target;
+								clearInterval(timer);
+							}
+							
+							//行动
+							$('box').style.marginLeft = begin + 'px';
+						},100);
+					},3000);
+				}
+				
+				$('btn1').onclick = function(){
+					clearTimeout(disposable_timer);
+				}
+			}
+			
+			function $(id){
+				return typeof id === "string" ? document.getElementById(id) : null;
+			}
+		</script>
+	</body>
+</html>
