@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/new_file.css"/>
+	</head>
+	<body>
+		<ul id="ps"></ul>
+	<script src="js/Underscore-min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			//1.获取需要的标签
+			var ps = document.getElementById('ps');
+			
+			//2.动态创建li标签
+			for(var i = 0;i < 10;i++){
+				//2.1创建li
+				var li = document.createElement('li');
+				ps.appendChild(li);
+				
+				//2.2创建img
+				var img = document.createElement('img');
+				img.src = "img/" + (i + 1) + ".jpg";
+				li.appendChild(img);
+			}
+			
+			//3.获取所有li标签
+			var allLis = ps.children;
+			
+			//4.求出屏幕宽高
+			var screenW = document.documentElement.clientWidth - 360;
+			var screenH = document.documentElement.clientHeight - 250;
+			
+			//5.遍历
+			for(var i = 0;i < allLis.length;i++){
+				//5.1取出单个li标签
+				var li = allLis[i];
+				
+				//5.2随机分布
+				li.style.left = _.random(0, screenW) + 'px';
+				li.style.top = _.random(0, screenH) + 'px';
+				
+				//5.3随机旋转
+				li.style.transform = 'rotate(' + _.random(0,360) + 'deg)';
+				
+				//5.4监听点击
+				li.onclick = function(){
+					for(var i = 0;i < allLis.length;i++){
+						allLis[i].className = '';
+					}
+					this.className = 'current';
+				}
+			}
+		}
+	</script>
+	</body>
+</html>

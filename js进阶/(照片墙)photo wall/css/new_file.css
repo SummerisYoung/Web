@@ -1,0 +1,30 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: none;
+}
+
+html, body, ul{
+	width: 100%;
+	height: 100%;
+}
+
+#ps{
+	position: relative;
+}
+
+#ps li{
+	width: 360;
+	height: 250;
+	box-shadow: 0 0 10px #000;
+	position: absolute;
+	transition: all 1s;
+}
+
+#ps li.current{
+	left: 50% !important;
+	top: 50% !important;
+	transform: rotate(0deg) translate(-50%, -50%) scale(1.5, 1.5) !important;
+	z-index: 99;
+}
