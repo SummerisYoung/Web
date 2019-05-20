@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			body{
+				background-color: #ccc;
+			}
+			
+			#aside{
+				width: 150px;
+				position: absolute;
+				left: 0;
+				top: 150px;
+			}
+			
+			#aside img{
+				width: 100%;
+			}
+			
+			p{
+				height: 50px;
+				text-align: center;
+				font-size: 20px;
+			}
+			
+			#top{
+				width: 43px;
+				height: 43px;
+				background: url(img/top.png) no-repeat;
+				background-size: 100% 100%;
+				position: fixed;
+				right: 10px;
+				bottom: 30px;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<span id="top"></span>
+		<div id="aside">
+			<img src="img/float.jpg" >
+		</div>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<p>血染江山的画 怎敌你眉间 一点朱砂 覆了天下也罢 始终不过 一场繁华</p>
+		<script src="js/myFunc.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//1.获取广告头部高度
+				var offset_top = $('aside').offsetTop, scroll_top = 0;
+				
+				//2.监听窗口的滚动
+				var begin = 0, end = 0, timer = null;
+				var start = 0, stop = 0, time = null;
+				window.onscroll = function(){
+					clearInterval(timer);
+					
+					//2.1获取滚动高度
+					scroll_top = scroll().top;
+					end = offset_top + scroll_top;
+					
+					//判断是否显示回到顶部
+					scroll_top > 0 ? $("top").style.display = 'block' : $("top").style.display = 'none';
+					start = scroll_top;
+					
+					//2.2缓动动画
+					timer = setInterval(function(){
+						begin = begin + (end - begin) * 0.2;
+						$("aside").style.top = begin + 'px';
+						
+						if(Math.round(begin) == end){
+							clearInterval(timer);
+						}
+					},20);
+				}
+				
+				//3.监听回到顶部图片点击
+				$("top").onclick = function(){
+					//3.1清除定时器
+					clearInterval(time);
+					
+					//3.2开始
+					time = setInterval(function(){
+						start = start + (stop - start) * 0.1;
+						window.scrollTo(0, start);
+						//3.3清除定时器
+						if(parseInt(start) == stop){
+							clearInterval(time);
+						}
+					}, 20);
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				font-size: 0;
+			}
+			li{
+				list-style: none;
+				display: inline-block;
+			}
+			.btn{
+				position: absolute;
+				top: 18%;
+				margin-top: -50px;
+				width: 60px;
+				height: 100px;
+				font-size: 30px;
+				color: white;
+				text-decoration: none;
+				text-align: center;
+				background: rgba(0,255,0,.5);
+				cursor: pointer;
+			}
+			.next{
+				right: 0;
+			}
+			#img{
+				position: relative;
+				left: 400px;
+				transform: scale(0.8,1);
+			}
+			#ph{
+				position: absolute;
+				left: 400px;
+				transform: scale(0.8,1);
+			}
+			#btn{
+				position: absolute;
+				top: 60%;
+				left: 46%;
+				margin-top: -50px;
+				width: 100px;
+				height: 60px;
+				font-size: 24px;
+				color: orange;
+				text-decoration: none;
+				text-align: center;
+				background: rgba(0,255,0,.5);
+				cursor: pointer;
+			}
+			#box{
+				background: rgba(0,0,255,.5);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p id="des"></p>
+			<img id="img" style="width: 751px;height: 300px;" src="img/preview(1).jpg" alt="">
+			<p></p>
+			<ul id="ph">
+				<li>
+					<a href="img/preview(1).jpg" title="">
+						<img src="img/preview(1).jpg" width="150" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="img/preview(2).jpg" title="">
+						<img src="img/preview(2).jpg" width="150" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="img/preview(3).jpg" title="">
+						<img src="img/preview(3).jpg" width="150" height="90" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="img/preview(4).jpg" title="">
+						<img src="img/preview(4).jpg" width="150" height="90" alt="">
+					</a>
+				</li>
+				<li>
+					<a href="img/preview(5).jpg" title="">
+						<img src="img/preview(5).jpg" width="150" alt="">
+					</a>
+				</li>
+			</ul>
+			<p></p>
+			<button class="prev btn" id="prev" type="button"><</button>
+			<button class="next btn" id="next" type="button">></button>
+			<p></p>
+			<button id="btn" type="button">隐藏</button>
+		</div>
+		<script type="text/javascript">
+			window.onload = function(){
+				//1.获取标签对象
+				var prev = document.getElementById("prev");
+				var next = document.getElementById("next");
+				
+				var img = document.getElementsByTagName("img")[0];
+				var btn = document.getElementById("btn");
+				
+				var ul = document.getElementById("ph");
+				var aList = ul.getElementsByTagName("a");
+				var des = document.getElementById("des");
+				//2.定义索引下标
+				var maxIndex = 5,minIndex = 1,currIndex = minIndex;
+				for(var i = 0;i < aList.length;i++){
+					aList[i].onclick = function(){
+						/* 获取目标图片名 */
+						var str = this.href; 
+						var n = str.search(/img/i);
+						/* 获取图片名中的下标 */
+						var index = str.search(/preview/i);
+						var numindex = str.substring(index + 8,index + 9);
+						/* 修正图片名 */
+						str = str.substring(n,str.length);
+						img.src = str;
+						/* 获取当前下标 */
+						currIndex = numindex;
+						des.innerHTML = this.title;
+						return false;
+					}
+				}
+				//3.为标签对象绑定单击响应函数
+				prev.onclick = function(){
+					currIndex--;
+					if(currIndex < minIndex)
+					currIndex = maxIndex;
+					img.src = "img/preview(" + currIndex + ").jpg";
+				}
+				
+				prev.onmouseover  = function(){
+					this.style.height = '50px';
+					this.style.width = '30px';
+				}
+				
+				prev.onmouseout  = function(){
+					this.style.height = '100px';
+					this.style.width = '60px';
+					
+				}
+				
+				next.onclick = function(){
+					currIndex++;
+					if(currIndex > maxIndex)
+					currIndex = minIndex;
+					img.src = "img/preview(" + currIndex + ").jpg";
+					
+				}
+				
+				btn.onclick = function(){
+					if(btn.innerText == "隐藏"){
+						img.style.display = "none";
+						ul.style.display = "none";
+						btn.innerText = "显示";
+					}else{
+						img.style.display = "inline-block";
+						ul.style.display = "inline-block";
+						btn.innerText = "隐藏";
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>
