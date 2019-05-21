@@ -70,7 +70,16 @@ window.onload = function(){
 				waterfull("main","box");
 			}
 		},500);
-		
+	}
+	
+	//3.窗口的大小发生改变
+	var time = null;
+	window.onresize = function(){
+		clearTimeout(time);
+		//节流
+		time = setTimeout(function(){
+			waterfull('main', 'box');
+		},200);
 	}
 };
 /* 实现瀑布流布局 */
@@ -98,6 +107,7 @@ function waterfull(parent, child){
 		//2.2.2取出第一行盒子的高度放入高度数组
 		if(i < cols){//第一行
 			heightArr.push(boxHeight);
+			allBox[i].style = ''; 
 		}else{//剩余行
 			//1.求出最矮的盒子高度
 			minBoxHeight = _.min(heightArr);
