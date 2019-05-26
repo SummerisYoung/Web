@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			img{
+				vertical-align: top;
+			}
+			
+			#box{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+			}
+			
+			#close{
+				width: 25px;
+				height: 25px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span id="close">
+				
+			</span>
+			<div id="top">
+				<img src="img/top.jpg" >
+			</div>
+			<div id="bottom">
+				<img src="img/bottom.jpg" >
+			</div>
+		</div>
+		
+		<script src="js/myFunc.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				//1.获取需要的标签
+				var box = $("box");
+				var top = $("top");
+				var bottom = $("bottom");
+				var close = $("close");
+				
+				//2.监听点击
+				close.onclick = function(){
+					buffer(bottom, {height:0}, function(){
+						buffer(box, {width:0},function(){
+							close.style.display = "none";
+						})
+					});
+				}
+			}
+		</script>
+	</body>
+</html>
