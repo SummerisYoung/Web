@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+			p{
+				margin: 100px;
+				width: 300px;
+			}
+			#share_text{
+				background-color: deepskyblue;
+				width: 150px;
+				color: orangered;
+				position: absolute;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="word">忘了有多久 再没听到你 对我说你最爱的故事 我想了很久 我开始慌了 是不是我又做错了什么 你哭着对我说 童话里都是骗人的 我不可能是你的王... </p>
+		
+		<div id="share_text"></div>
+		<script src="js/myFunc.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				//1.监听鼠标的抬起
+				document.onmouseup = function(event){
+					//1.0兼容
+					var e = event || window.event;
+					//1.1获取选中的文字
+					var selectedText;
+					if(window.getSelection){//标准浏览器 获取选中的文字
+						selectedText = window.getSelection().toString();
+					}else{//ie
+						selectedText = document.selection.createRange().text;
+					}
+					
+					if(selectedText !== ''){
+						//1.2显示面板
+						$("share_text").innerText = selectedText;
+						$("share_text").style.display = 'block'; 
+						
+						//1.3改变位置
+						$("share_text").style.left = e.clientX + 'px';
+						console.log($("share_text").style.left);
+						$("share_text").style.top = e.clientY + 'px';
+					}
+				}
+			};
+			
+			//2.监听文档的点击
+			document.onmousedown = function(event){
+				//2.0兼容
+				var e = event || window.event;
+				
+				//2.1获取点击区域的ID
+				var targetID = e.target ? e.target.id : e.srcElement.id;
+				
+				//2.2判断
+				if(targetID !== "share_text"){
+					$("share_text").style.display = "none";
+				}
+				
+				//2.3防止拖曳时选中内容
+				window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();
+			}
+		</script>
+	</body>
+</html>
